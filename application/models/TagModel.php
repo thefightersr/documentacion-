@@ -19,13 +19,13 @@ class TagModel extends CI_Model {
 		return $result[0];
 	}
 
-	public function save ($id, $datos){
-		$datos = FunctionsLibrary::setNullValues($datos);
+	public function save ($id, $data){
+		$data = FunctionsLibrary::setNullValues($data);
 		if ($id) {
 			$this->db->where('id',$id);
-			$this->db->update('tagItem',$datos);
+			$this->db->update('tagItem',$data);
 		} else {
-			$this->db->insert('tagItem',$datos);
+			$this->db->insert('tagItem',$data);
 		}
 	}
 

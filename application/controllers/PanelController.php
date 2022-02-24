@@ -25,9 +25,10 @@ class PanelController extends CI_Controller {
 
 		// LIBRERIAS Y HELPER
 		$this->load->helper('form');
-    	$this->load->library('form_validation');
-    	$this->load->helper('url');
-    	// MODULOS
+		$this->load->library('form_validation');
+		$this->load->helper('url');
+    
+		// MODULOS
 		$this->load->model('ItemModel');
 		$this->load->model('SectorModel');
 		$this->load->model('TagModel');
@@ -69,9 +70,6 @@ class PanelController extends CI_Controller {
 
 				$tags = @$_POST['etiquetas'];
 				unset($_POST['etiquetas']);
-
-				$_POST['usuario'] = ($empleado->getId() == ID_PTOLEDO) ? ID_WSOTO : $empleado->getId();
-				$_POST['usuarioNombre'] = ($empleado->getId() == ID_PTOLEDO) ? 'Wsoto' : $empleado->getNombreCorto();
 
 				// print_r(FunctionsLibrary::fechaRealToMysql($_POST['fecha']));
 				// die();
@@ -170,8 +168,8 @@ class PanelController extends CI_Controller {
 
 		if ($this->input->post('tagNombre')) {
 			if ($this->form_validation->run()) {
-				$datos = array('nombre'=>$_POST['tagNombre']);
-				$this->TagModel->save($id,$datos);
+				$data = array('nombre'=>$_POST['tagNombre']);
+				$this->TagModel->save($id,$data);
 			
 				redirect('/PanelController/dashboard');
 				// $this->dashboard();

@@ -42,7 +42,7 @@ class DocumentationController extends CI_Controller {
 		$this->load->view('templates/footers/footer');
 	}
 
-	public function citasView()
+	public function appointmentView()
 	{
 		$data['items'] = $this->ItemModel->findAll(10);
 		$data['sectors'] = $this->SectorModel->countAll();
@@ -50,7 +50,7 @@ class DocumentationController extends CI_Controller {
 		
 		$this->load->view('templates/headers/header');
 		$this->load->view('templates/headers/main_menu');
-		$this->load->view('citas_list_view',$data);
+		$this->load->view('appointment_list_view',$data);
 		$this->load->view('templates/footers/footer');
 	}
 

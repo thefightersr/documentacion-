@@ -2,16 +2,16 @@
 
 class FunctionsLibrary extends CI_Model {
 
-	public static function setNullValues($datos=array()) {
-		if(empty($datos)) return $datos;
+	public static function setNullValues($data=array()) {
+		if(empty($data)) return $data;
 
-		foreach ($datos as $key => $value) {
+		foreach ($data as $key => $value) {
 			if ($value=="") {
-				$datos[$key] = NULL;
+				$data[$key] = NULL;
 			}
 		}
 
-		return $datos;
+		return $data;
 	}
 
 	public static function fechaMysqlToReal($fecha){

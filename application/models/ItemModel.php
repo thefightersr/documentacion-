@@ -63,16 +63,16 @@ class ItemModel extends CI_Model {
 		return $this->db->update('item');
 	}
 
-	public function save ($id, $datos){
-		$datos = FunctionsLibrary::setNullValues($datos);
+	public function save ($id, $data){
+		$data = FunctionsLibrary::setNullValues($data);
 
 		if ($id) {
 			$this->db->where('id',$id);
-			$this->db->update('item',$datos);
+			$this->db->update('item',$data);
 
 			return $id;
 		} else {
-			$this->db->insert('item',$datos);
+			$this->db->insert('item',$data);
 
 			return $this->db->insert_id();
 		}

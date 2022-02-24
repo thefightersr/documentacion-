@@ -36,13 +36,13 @@ class SectorModel extends CI_Model {
 		return $result[0];
 	}
 
-	public function save ($id, $datos){
-		$datos = FunctionsLibrary::setNullValues($datos);
+	public function save ($id, $data){
+		$data = FunctionsLibrary::setNullValues($data);
 		if ($id) {
 			$this->db->where('id',$id);
-			$this->db->update('sectorItem',$datos);
+			$this->db->update('sectorItem',$data);
 		} else {
-			$this->db->insert('sectorItem',$datos);
+			$this->db->insert('sectorItem',$data);
 		}
 	}
 

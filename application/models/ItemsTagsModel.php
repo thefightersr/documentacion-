@@ -30,14 +30,14 @@ class ItemsTagsModel extends CI_Model {
 		return $result[0];
 	}
 
-	public function save ($id, $datos=array()){
+	public function save ($id, $data=array()){
 		
-		$datos = FunctionsLibrary::setNullValues($datos);
+		$data = FunctionsLibrary::setNullValues($data);
 		$this->db->where('idItem',$id);
 		$this->db->delete('itemstags');
 
-		if(empty($datos)) return ;
-		foreach ($datos as $tag) {
+		if(empty($data)) return ;
+		foreach ($data as $tag) {
 			$this->db->set('idItem',$id);
 			$this->db->set('idTag',$tag);
 			$this->db->insert('itemstags');
